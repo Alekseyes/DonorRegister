@@ -22,21 +22,64 @@ let aboutUser =
   adressStreet: "", 
   adressHouse: "", 
   adressHousing: "", 
-  adressApartment: "" 
+  adressApartment: ""
  }; 
   
 let health =
 {
-  pregnant: "", 
-  pregnantCount: "", 
-  blood: "", 
-  allergy: "", 
-  specsHeight: "", 
-  specsWeight: "", 
-  
-  smoke: "", 
-  alcohol: "", 
-}
+  wasPregnant: "",// была ли беременность?
+  numberPregnants: "", // количество беременостей?
+  bloodType: "", // группа крови и резус-фактор?
+  wasBloodTransfusion: "", //было ли переливание?
+  whatPoured: "", // что переливалось?
+  transfusionYear: "", // год переливания
+  numberTransfusion: "", // количество переливаний
+  haveAllergies: "", // есть ли аллергия?
+  whichAllergies: "", // какая аллергия?
+  height: "", // рост
+  weigth: "", // вес
+  isSmoking: "", // курите ли вы?
+  isDrinking: "", // регулярно ли употребляете алкоголь?
+  isBloodDonor: "", // были ли донором крови?
+  reasonDonor: "", // причина донорства крови?
+  takePills: "", // принимаете таблетки?
+  whatPills: "", // если да, то такие?
+  wasSurgeryLastYear: "", // была ли хирургия в последний год?
+  whatSurgery: "", // какая хирургия была?
+  wasFever: "", // была ли лихорадка?
+  wasAccident: "", // была ли авария?
+  wasCancer: "", // были ли опухоли?
+  wasDiabet: "", // есть диабет?
+  wasAsthma: "", // была астма?
+  highPressure: "", // высокое кровяное давление?
+  heartDesease: "", // болезни сердца?
+  vascularDesease: "", // болезни сосудов?
+  cougulationDesease: "", // кровь свертывается?
+  hereditaryBloodDesease: "", // наследственные заболевания крови?
+  severKidneyDesease: "", // тяжелые заболевания почек?
+  thyroidDesease: "", // заболевания щитовидной железы?
+  autoimmuneDesease: "", // аутоимунные болезни?
+  nervousSystemDesease: "", // болезни нервной системы ?
+  mentalProblam: "",// Психические проблемы
+  hivInfection: "", // Вич-инфекция?
+  viralHepatitis: "", // Вирусный геппатит ?
+  syphilis: "", // Сифилис?
+  tuberculosis: "", // Туберкулез?
+  infectiousDesease: "", // Инфекционные болезни?
+  healPituitary: "", // Лечились ли вы гормонами гипофиза?
+  tissueTransplantation: "", // Трансплантация тканей?
+  relativesLeukemia: "", // Болели ли родственники лейкемией?
+  relativesCancer: "", // Болели ли родственники раком?
+  relativeCreutzfeld: "", // Болели ли родственники Крейтцфельдом?
+  knowHepatitHIV: "", // знакомы с Гепатитом, ВИЧ?
+  clearInformation: "", // понятна информация выше?
+  dangerHepatitHIV: "", // в группе риска Гепатит или ВИЧ?
+  wasGeneralAnesthesia: "", // была общая анастезия?
+  wasAnasthesiaComplications: "", // были ли осложнения от анастезии?
+  whichAnasthesiaComplications: "", // какие осложнения?
+  siblingsAnasthesiaComplications: "", // какие осложнения от анастезии были у родственников?
+  concerns: "", // есть ли опасения о возможность стать донором?
+};
 
 class userInfo extends Component
 {
@@ -113,7 +156,7 @@ class userInfo extends Component
             />
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Дата рождения:</label>
             <input
               type="text"
@@ -248,7 +291,7 @@ class userInfo extends Component
 
           {/* Данные о состоянии здоровья */}
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <div>
               <p>Были ли у Вас беременности</p>
               <input
@@ -268,8 +311,15 @@ class userInfo extends Component
                 onClick={this.onClick}
               />
               <label>Нет</label>
+
+              <input
+                type="text"
+                name="numberPregnants"
+                required
+                value={this.state}
+              />
             </div>
-          </div>
+          </div> */}
 
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
