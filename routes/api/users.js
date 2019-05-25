@@ -58,9 +58,6 @@ router.post("/login", (req, res) => {
       return res.status(404).json(errors);
     }
 
-    user.autoimmuneDesease = true;
-    user.save()
-
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const payload = { id: user.id, name: user.name, role: user.role };
