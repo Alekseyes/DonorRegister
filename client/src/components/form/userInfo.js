@@ -48,11 +48,11 @@ class userInfo extends Component
 
   render()
   {
-    const auth = this.props;
+    const { auth } = this.props;
 
     const form =
     <React.Fragment>
-      {!auth.isAuthenticated ?
+      {auth.isAuthenticated ?
       (
         <form>
           <div class="form-group">
@@ -75,4 +75,12 @@ class userInfo extends Component
   }
 }
 
-export default userInfo;
+userInfo.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(withRouter(userInfo));
