@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import setUserData from "../../actions/formActions";
 
 class userInfo extends Component
 {
@@ -38,12 +39,7 @@ class userInfo extends Component
     console.log(this.state.name);
     console.log(this.state.surname);
 
-    axios
-      .post("/api/testForm", {userData})
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      });
+    this.props.setUserData(userData);
   };
 
   render()
@@ -54,7 +50,7 @@ class userInfo extends Component
     <React.Fragment>
       {auth.isAuthenticated ?
       (
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div class="form-group">
             <label for="exampleFormControlInput1">Имя</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваше имя" name="name" value={this.state.name} onChange={this.onChange}/>
@@ -83,4 +79,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(withRouter(userInfo));
+export default connect(mapStateToProps, {setUserData})(withRouter(userInfo));
