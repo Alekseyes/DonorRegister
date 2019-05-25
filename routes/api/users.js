@@ -22,8 +22,10 @@ router.post("/register/user", (req, res) => {
     } else {
       const newUser = new User({
         name: req.body.name,
-        password: req.body.password
+        password: req.body.password,
+        status: "статус"
       });
+      newUser.question = {text:"текст", isPresent: true},
 
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -55,6 +57,9 @@ router.post("/login", (req, res) => {
       errors.name = "Пользователь не найден";
       return res.status(404).json(errors);
     }
+
+    user.status = "залогинился";
+    user.save();
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
