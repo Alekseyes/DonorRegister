@@ -60,7 +60,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.name
                     })}
-                    placeholder="Name"
+                    placeholder="Name11"
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
@@ -75,7 +75,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password
                     })}
-                    placeholder="Password"
+                    placeholder="Password22"
                     value={this.state.password}
                     name="password"
                     onChange={this.onChange}
@@ -90,7 +90,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password2
                     })}
-                    placeholder="Confirm Password"
+                    placeholder="Confirm Password33"
                     value={this.state.password2}
                     name="password2"
                     onChange={this.onChange}

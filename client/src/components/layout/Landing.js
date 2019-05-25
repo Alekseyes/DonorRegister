@@ -14,23 +14,23 @@ class Landing extends Component {
             <div className="row">
               {!auth.isAuthenticated ? (
                 <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4">WebWeekend</h1>
+                  <h1 className="display-3 mb-4">WebWeekend+</h1>
                   <p className="lead"> Create your own application</p>
                   <hr />
                   <Link to="/register" className="btn btn-lg btn-info mr-2">
-                    Sign Up
+                    Sign Up5
                   </Link>
                   <Link to="/login" className="btn btn-lg btn-light">
-                    Login
+                    Login6
                   </Link>
                 </div>
               ) : (
                 <div className="col-md-12 text-center">
                   <h1 className="display-3 mb-4">{`Привет ${
-                    auth.user.role
+                    auth.user.role + " " + auth.user.name
                   } `}</h1>
                   <h1 className="display-3 mb-4">{`по имени ${
-                    auth.user.name
+                    auth.user.name + "asd"
                   } `}</h1>
                 </div>
               )}
