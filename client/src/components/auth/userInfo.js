@@ -4,13 +4,12 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 import { loginUser } from "../../actions/authActions";
 
-class Login extends Component {
+class userInfo extends Component {
   constructor() {
     super();
     this.state = {
       name: "",
-      password: "",
-      errors: {},
+      surname: "",
     };
   }
 
