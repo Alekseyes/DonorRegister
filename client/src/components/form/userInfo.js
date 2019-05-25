@@ -5,6 +5,38 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import setUserData from "../../actions/formActions";
+
+let aboutUser =
+{ 
+  surname: "", 
+  firstName: "", 
+  secondName: "", 
+  gender: "", 
+  bday: "", 
+  mobilePhone: "", 
+  email: "", 
+  otherContacts: "", 
+  adressIndex: "", 
+  adressCity: "", 
+  adressStreet: "", 
+  adressHouse: "", 
+  adressHousing: "", 
+  adressApartment: "" 
+ }; 
+  
+let health =
+{
+  pregnant: "", 
+  pregnantCount: "", 
+  blood: "", 
+  allergy: "", 
+  specsHeight: "", 
+  specsWeight: "", 
+  
+  smoke: "", 
+  alcohol: "", 
+}
 
 class userInfo extends Component
 {
@@ -12,38 +44,25 @@ class userInfo extends Component
   {
     super();
 
-    this.state =
-    {
-      name: "",
-      surname: "",
-    };
+    this.state = aboutUser;
+  }
+
+  onClick = (e) =>
+  { 
+    this.state.gender = e.target.value; 
+    console.log(this.state.gender); 
   }
 
   onChange = e =>
   {
     this.setState({[e.target.name]: e.target.value});
-    this.setState({[e.target.surname]: e.target.value});
   };
 
   onSubmit = e =>
   {
     e.preventDefault();
 
-    const userData =
-    {
-      name: this.state.name,
-      surname: this.state.surname
-    };
-
-    console.log(this.state.name);
-    console.log(this.state.surname);
-
-    axios
-      .post("/api/testForm", {userData})
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      });
+    this.props.setUserData(this.state);
   };
 
   render()
@@ -52,23 +71,210 @@ class userInfo extends Component
 
     const form =
     <React.Fragment>
-      {auth.isAuthenticated ?
-      (
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Имя</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваше имя" name="name" value={this.state.name} onChange={this.onChange}/>
-          </div>
-          
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Фамилия</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваша Фамилия" name="surname" value={this.state.surname} onChange={this.onChange}/>
+       <div className="login">
+        <p>Информация о пользователе:</p>
+        <form onSubmit={this.onSubmit}>
+
+          {/* Основные данные о пользователе */}
+
+          <div className="form-group">
+            <label>Фамилия:</label>
+            <input
+              type="text"
+              placeholder="Введите фамилию"
+              name="surname"
+              required
+              value={this.state.surname}
+              onChange={this.onChange}
+            />
           </div>
 
-          <button type="submit" class="btn btn-primary">Отправить</button>
+          <div className="form-group">
+            <label>Имя</label>
+            <input
+              type="text"
+              placeholder="Введите имя"
+              name="firstName"
+              required="required"
+              value={this.state.firstName}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Отчество:</label>
+            <input
+              type="text"
+              placeholder="Введите отчество"
+              name="secondName"
+              required="required"
+              value={this.state.secondName}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Дата рождения:</label>
+            <input
+              type="text"
+              placeholder="Введите дату рождения"
+              name="birthday"
+              required="required"
+              value={this.state.bday}
+              onChange={this.onChange}
+            />
+          </div>
+          <div className="form-group">
+            <fieldset>
+              <legend>Пол:</legend>
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="мужской"
+                onClick={this.onClick}
+              />
+              <label>Мужской</label>
+
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="женский"
+                onClick={this.onClick}
+              />
+              <label>Женский</label>
+            </fieldset>
+          </div>
+
+          <div className="form-group">
+            <label>Мобильный телефон:</label>
+            <input
+              type="tel"
+              name="mobilePhone"
+              required="required"
+              value={this.state.mobilePhone}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Электронная почта:</label>
+            <input
+              type="email"
+              name="email"
+              required="required"
+              value={this.state.email}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Другие актуальные способы связи:</label>
+            <input
+              type="text"
+              name="otherContacts"
+              required="required"
+              value={this.state.otherContacts}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Почтовый индекс:</label>
+            <input
+              type="text"
+              name="adressIndex"
+              required="required"
+              value={this.state.adressIndex}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Город:</label>
+            <input
+              type="text"
+              name="adressCity"
+              required="required"
+              value={this.state.adressCity}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Улица:</label>
+            <input
+              type="text"
+              name="adressStreet"
+              required="required"
+              value={this.state.adressStreet}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Дом:</label>
+            <input
+              type="text"
+              name="adressHouse"
+              required="required"
+              value={this.state.adressHouse}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Корпус:</label>
+            <input
+              type="text"
+              name="adressHousing"
+              required="required"
+              value={this.state.adressHousing}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Квартира:</label>
+            <input
+              type="text"
+              name="adressApartment"
+              required="required"
+              value={this.state.adressApartment}
+              onChange={this.onChange}
+            />
+          </div>
+
+          {/* Данные о состоянии здоровья */}
+
+          <div className="form-group">
+            <div>
+              <p>Были ли у Вас беременности</p>
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="мужской"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="женский"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+
+          <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>
-      ) : null
-      }
+      </div>
     </React.Fragment>
 
     return form;
@@ -83,4 +289,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(withRouter(userInfo));
+export default connect(mapStateToProps, {setUserData})(withRouter(userInfo));
