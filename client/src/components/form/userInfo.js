@@ -72,13 +72,13 @@ class userInfo extends Component
     const form =
     <React.Fragment>
        <div className="login">
-        <p>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ:</p>
+        <p>Информация о пользователе:</p>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Р¤Р°РјРёР»РёСЏ:</label>
+            <label>Фамилия:</label>
             <input
               type="text"
-              placeholder="Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ"
+              placeholder="Введите фамилию"
               name="surname"
               required="required"
               value={this.state.surname}
@@ -87,10 +87,10 @@ class userInfo extends Component
           </div>
 
           {/* <div className="form-group">
-            <label>РРјСЏ</label>
+            <label>Имя</label>
             <input
               type="text"
-              placeholder="Р’РІРµРґРёС‚Рµ РёРјСЏ"
+              placeholder="Введите имя"
               name="firstName"
               required="required"
               value={this.state.firstName}
@@ -99,10 +99,10 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РћС‚С‡РµСЃС‚РІРѕ:</label>
+            <label>Отчество:</label>
             <input
               type="text"
-              placeholder="Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ"
+              placeholder="Введите отчество"
               name="secondName"
               required="required"
               value={this.state.secondName}
@@ -111,10 +111,10 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ:</label>
+            <label>Дата рождения:</label>
             <input
               type="text"
-              placeholder="Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ"
+              placeholder="Введите дату рождения"
               name="birthday"
               required="required"
               value={this.state.bday}
@@ -123,29 +123,29 @@ class userInfo extends Component
           </div>
           <div className="form-group">
             <fieldset>
-              <legend>РџРѕР»:</legend>
+              <legend>Пол:</legend>
               <input
                 type="radio"
                 name="gender"
                 required="required"
-                value="РјСѓР¶СЃРєРѕР№"
+                value="мужской"
                 onClick={this.onClick}
               />
-              <label>РјСѓР¶СЃРєРѕР№</label>
+              <label>мужской</label>
 
               <input
                 type="radio"
                 name="gender"
                 required="required"
-                value="Р¶РµРЅСЃРєРёР№"
+                value="женский"
                 onClick={this.onClick}
               />
-              <label>Р¶РµРЅСЃРєРёР№</label>
+              <label>женский</label>
             </fieldset>
           </div>
 
           <div className="form-group">
-            <label>РњРѕР±РёР»СЊРЅС‹Р№ С‚РµР»РµС„РѕРЅ:</label>
+            <label>Мобильный телефон:</label>
             <input
                   type="tel"
                   name="mobilePhone"
@@ -156,7 +156,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°:</label>
+            <label>Электронная почта:</label>
             <input
                   type="email"
                   name="email"
@@ -167,7 +167,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°:</label>
+            <label>Электронная почта:</label>
             <input
                   type="email"
                   name="email"
@@ -178,7 +178,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>Р”СЂСѓРіРёРµ Р°РєС‚СѓР°Р»СЊРЅС‹Рµ СЃРїРѕСЃРѕР±С‹ СЃРІСЏР·Рё:</label>
+            <label>Другие актуальные способы связи:</label>
             <input
                   type="text"
                   name="otherContacts"
@@ -189,7 +189,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (РёРЅРґРµРєСЃ):</label>
+            <label>Адрес (индекс):</label>
             <input
                   type="text"
                   name="adressIndex"
@@ -200,7 +200,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (РіРѕСЂРѕРґ):</label>
+            <label>Адрес (город):</label>
             <input
                   type="text"
                   name="adressCity"
@@ -211,7 +211,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (СѓР»РёС†Р°):</label>
+            <label>Адрес (улица):</label>
             <input
                   type="text"
                   name="adressStreet"
@@ -222,7 +222,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (РґРѕРј):</label>
+            <label>Адрес (дом):</label>
             <input
                   type="text"
                   name="adressHouse"
@@ -233,7 +233,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (РєРѕСЂРїСѓСЃ):</label>
+            <label>Адрес (корпус):</label>
             <input
                   type="text"
                   name="adressHousing"
@@ -244,7 +244,7 @@ class userInfo extends Component
           </div>
 
           <div className="form-group">
-            <label>РђРґСЂРµСЃ (РєРѕСЂРїСѓСЃ):</label>
+            <label>Адрес (корпус):</label>
             <input
                   type="text"
                   name="adressApartment"

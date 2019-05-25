@@ -12,14 +12,8 @@ const UserSchema = new Schema({
   },
   role: {
     type: String,
-    default: "user",
-    question: {
-      text: {type: String},
-      isPresent: {type: Boolean}
-    }
-  },
-  status: {
-    type: String
+    default: "user"
   }
+  
 });
 module.exports = User = mongoose.model("users", UserSchema);
