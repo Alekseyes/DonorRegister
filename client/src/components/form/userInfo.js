@@ -9,9 +9,9 @@ import setUserData from "../../actions/formActions";
 
 let aboutUser =
 { 
+  surname: "", 
   firstName: "", 
   secondName: "", 
-  surname: "", 
   gender: "", 
   bday: "", 
   mobilePhone: "", 
@@ -74,19 +74,22 @@ class userInfo extends Component
        <div className="login">
         <p>Информация о пользователе:</p>
         <form onSubmit={this.onSubmit}>
+
+          {/* Основные данные о пользователе */}
+
           <div className="form-group">
             <label>Фамилия:</label>
             <input
               type="text"
               placeholder="Введите фамилию"
               name="surname"
-              required="required"
+              required
               value={this.state.surname}
               onChange={this.onChange}
             />
           </div>
 
-          {/* <div className="form-group">
+          <div className="form-group">
             <label>Имя</label>
             <input
               type="text"
@@ -131,7 +134,7 @@ class userInfo extends Component
                 value="мужской"
                 onClick={this.onClick}
               />
-              <label>мужской</label>
+              <label>Мужской</label>
 
               <input
                 type="radio"
@@ -140,119 +143,134 @@ class userInfo extends Component
                 value="женский"
                 onClick={this.onClick}
               />
-              <label>женский</label>
+              <label>Женский</label>
             </fieldset>
           </div>
 
           <div className="form-group">
             <label>Мобильный телефон:</label>
             <input
-                  type="tel"
-                  name="mobilePhone"
-                  required="required"
-                  value={this.state.mobilePhone}
-                  onChange={this.onChange}
-                />
+              type="tel"
+              name="mobilePhone"
+              required="required"
+              value={this.state.mobilePhone}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
             <label>Электронная почта:</label>
             <input
-                  type="email"
-                  name="email"
-                  required="required"
-                  value={this.state.mobilePhone}
-                  onChange={this.onChange}
-                />
-          </div>
-
-          <div className="form-group">
-            <label>Электронная почта:</label>
-            <input
-                  type="email"
-                  name="email"
-                  required="required"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
+              type="email"
+              name="email"
+              required="required"
+              value={this.state.email}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
             <label>Другие актуальные способы связи:</label>
             <input
-                  type="text"
-                  name="otherContacts"
-                  required="required"
-                  value={this.state.otherContacts}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="otherContacts"
+              required="required"
+              value={this.state.otherContacts}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (индекс):</label>
+            <label>Почтовый индекс:</label>
             <input
-                  type="text"
-                  name="adressIndex"
-                  required="required"
-                  value={this.state.adressIndex}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="adressIndex"
+              required="required"
+              value={this.state.adressIndex}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (город):</label>
+            <label>Город:</label>
             <input
-                  type="text"
-                  name="adressCity"
-                  required="required"
-                  value={this.state.adressCity}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="adressCity"
+              required="required"
+              value={this.state.adressCity}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (улица):</label>
+            <label>Улица:</label>
             <input
-                  type="text"
-                  name="adressStreet"
-                  required="required"
-                  value={this.state.adressStreet}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="adressStreet"
+              required="required"
+              value={this.state.adressStreet}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (дом):</label>
+            <label>Дом:</label>
             <input
-                  type="text"
-                  name="adressHouse"
-                  required="required"
-                  value={this.state.adressHouse}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="adressHouse"
+              required="required"
+              value={this.state.adressHouse}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (корпус):</label>
+            <label>Корпус:</label>
             <input
-                  type="text"
-                  name="adressHousing"
-                  required="required"
-                  value={this.state.adressHousing}
-                  onChange={this.onChange}
-                />
+              type="text"
+              name="adressHousing"
+              required="required"
+              value={this.state.adressHousing}
+              onChange={this.onChange}
+            />
           </div>
 
           <div className="form-group">
-            <label>Адрес (корпус):</label>
+            <label>Квартира:</label>
             <input
-                  type="text"
-                  name="adressApartment"
-                  required="required"
-                  value={this.state.adressApartment}
-                  onChange={this.onChange}
-                />
-          </div> */}
+              type="text"
+              name="adressApartment"
+              required="required"
+              value={this.state.adressApartment}
+              onChange={this.onChange}
+            />
+          </div>
+
+          {/* Данные о состоянии здоровья */}
+
+          <div className="form-group">
+            <div>
+              <p>Были ли у Вас беременности</p>
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="мужской"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="gender"
+                required="required"
+                value="женский"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>

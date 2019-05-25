@@ -27,7 +27,8 @@ class Landing extends Component {
               ) : (
                 (auth.user.role === "user") ? (
                   <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4">{`Привет ${auth.user.name} `}</h1>
+                  <h1 className="display-3 mb-4">{`Здравтсвуйте,  ${auth.user.name} `}</h1>
+                  <h1 className="display-3 mb-4"> </h1>
                   <Link to="/form" className="btn btn-lg btn-light">
                     Заполнить анкету
                   </Link>
