@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
     }
   });
   */
-  return res.status(200);
+  return res.status(200).json({cool:"yes"});
 });
 
 module.exports = router;
