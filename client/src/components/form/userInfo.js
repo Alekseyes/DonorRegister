@@ -22,11 +22,7 @@ let aboutUser =
   adressStreet: "", 
   adressHouse: "", 
   adressHousing: "", 
-  adressApartment: ""
- }; 
-  
-let health =
-{
+  adressApartment: "",
   wasPregnant: "",// была ли беременность?
   numberPregnants: "", // количество беременостей?
   bloodType: "", // группа крови и резус-фактор?
@@ -41,7 +37,8 @@ let health =
   isSmoking: "", // курите ли вы?
   isDrinking: "", // регулярно ли употребляете алкоголь?
   isBloodDonor: "", // были ли донором крови?
-  reasonDonor: "", // причина донорства крови?
+  isBloodDonorCancel: "",  //отстранение от донорства
+  reasonDonorCancel: "", // причина отстранения донорства крови?
   takePills: "", // принимаете таблетки?
   whatPills: "", // если да, то такие?
   wasSurgeryLastYear: "", // была ли хирургия в последний год?
@@ -105,7 +102,7 @@ class userInfo extends Component
   {
     e.preventDefault();
 
-    this.props.setUserData(this.state);
+    this.props.setUserData({...this.state, auth: this.props.auth}); // ??
   };
 
   render()
@@ -114,7 +111,7 @@ class userInfo extends Component
 
     const form =
     <React.Fragment>
-       <div className="login">
+      <div className="login">
         <p>Информация о пользователе:</p>
         <form onSubmit={this.onSubmit}>
 
@@ -138,7 +135,7 @@ class userInfo extends Component
               type="text"
               placeholder="Введите имя"
               name="firstName"
-              required="required"
+              required
               value={this.state.firstName}
               onChange={this.onChange}
             />
@@ -150,30 +147,31 @@ class userInfo extends Component
               type="text"
               placeholder="Введите отчество"
               name="secondName"
-              required="required"
+              required
               value={this.state.secondName}
               onChange={this.onChange}
             />
           </div>
 
-          {/* <div className="form-group">
+          <div className="form-group">
             <label>Дата рождения:</label>
             <input
               type="text"
               placeholder="Введите дату рождения"
-              name="birthday"
-              required="required"
+              name="bday"
+              required
               value={this.state.bday}
               onChange={this.onChange}
             />
           </div>
+
           <div className="form-group">
             <fieldset>
               <legend>Пол:</legend>
               <input
                 type="radio"
                 name="gender"
-                required="required"
+                required
                 value="мужской"
                 onClick={this.onClick}
               />
@@ -182,7 +180,7 @@ class userInfo extends Component
               <input
                 type="radio"
                 name="gender"
-                required="required"
+                required
                 value="женский"
                 onClick={this.onClick}
               />
@@ -193,9 +191,9 @@ class userInfo extends Component
           <div className="form-group">
             <label>Мобильный телефон:</label>
             <input
-              type="tel"
+              type="text"
               name="mobilePhone"
-              required="required"
+              required
               value={this.state.mobilePhone}
               onChange={this.onChange}
             />
@@ -204,9 +202,9 @@ class userInfo extends Component
           <div className="form-group">
             <label>Электронная почта:</label>
             <input
-              type="email"
+              type="text"
               name="email"
-              required="required"
+              required
               value={this.state.email}
               onChange={this.onChange}
             />
@@ -217,7 +215,7 @@ class userInfo extends Component
             <input
               type="text"
               name="otherContacts"
-              required="required"
+              required
               value={this.state.otherContacts}
               onChange={this.onChange}
             />
@@ -228,7 +226,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressIndex"
-              required="required"
+              required
               value={this.state.adressIndex}
               onChange={this.onChange}
             />
@@ -239,7 +237,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressCity"
-              required="required"
+              required
               value={this.state.adressCity}
               onChange={this.onChange}
             />
@@ -250,7 +248,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressStreet"
-              required="required"
+              required
               value={this.state.adressStreet}
               onChange={this.onChange}
             />
@@ -261,7 +259,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressHouse"
-              required="required"
+              required
               value={this.state.adressHouse}
               onChange={this.onChange}
             />
@@ -272,7 +270,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressHousing"
-              required="required"
+              required
               value={this.state.adressHousing}
               onChange={this.onChange}
             />
@@ -283,7 +281,7 @@ class userInfo extends Component
             <input
               type="text"
               name="adressApartment"
-              required="required"
+              required
               value={this.state.adressApartment}
               onChange={this.onChange}
             />
@@ -291,14 +289,14 @@ class userInfo extends Component
 
           {/* Данные о состоянии здоровья */}
 
-          {/* <div className="form-group">
+          <div className="form-group">
             <div>
               <p>Были ли у Вас беременности</p>
               <input
                 type="radio"
                 name="gender"
-                required="required"
-                value="мужской"
+                required
+                value="да"
                 onClick={this.onClick}
               />
               <label>Да</label>
@@ -306,21 +304,342 @@ class userInfo extends Component
               <input
                 type="radio"
                 name="gender"
-                required="required"
-                value="женский"
+                required
+                value="нет"
                 onClick={this.onClick}
               />
               <label>Нет</label>
 
+              <p>Сколько раз?</p>
               <input
                 type="text"
                 name="numberPregnants"
                 required
-                value={this.state}
+                value={this.state.numberPregnants}
               />
             </div>
-          </div> */}
+          </div>
 
+          <div className="form-group">
+            <label>Группа крови и резус фактор</label>
+            <input
+              type="text"
+              placeholder=""
+              name="bloodType"
+              required
+              value={this.state.bloodType}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Проводилось ли Вам переливание крови</p>
+              <input
+                type="radio"
+                name="wasBloodTransfusion"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasBloodTransfusion"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>Что переливалось?</p>
+              <input
+                type="text"
+                name="whatPoured"
+                required
+                value={this.state.whatPoured}
+              />
+              <p>Когда (год)?</p>
+              <input
+                type="text"
+                name="transfusionYear"
+                required
+                value={this.state.transfusionYear}
+              />
+              <p>Сколько раз?</p>
+              <input
+                type="text"
+                name="numberTransfusion"
+                required
+                value={this.state.numberTransfusion}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Есть ли у Вас аллергия?</p>
+              <input
+                type="radio"
+                name="haveAllergies"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="haveAllergies"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>На какие аллергены?</p>
+              <input
+                type="text"
+                name="whichAllergies"
+                required
+                value={this.state.whichAllergies}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Ваш рост (см):</label>
+            <input
+              type="text"
+              placeholder=""
+              name="height"
+              required
+              value={this.state.height}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Ваш вес (кг):</label>
+            <input
+              type="text"
+              placeholder=""
+              name="weigth"
+              required
+              value={this.state.weigth}
+              onChange={this.onChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Курите ли Вы?</p>
+              <input
+                type="radio"
+                name="isSmoking"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="isSmoking"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Регулярно ли Вы употребляете алкоголь?</p>
+              <input
+                type="radio"
+                name="isDrinking"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="isDrinking"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Вы когда-нибудь были донором крови?</p>
+              <input
+                type="radio"
+                name="isBloodDonor"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="isBloodDonor"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Вас когда-нибудь отстраняли от донорства?</p>
+              <input
+                type="radio"
+                name="isBloodDonorCancel"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="isBloodDonorCancel"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>Причина отстранения:</p>
+              <input
+                type="text"
+                name="reasonDonorCancel"
+                required
+                value={this.state.reasonDonorCancel}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Принимаете ли Вы на данный моммент какие-нибудь медицинские препараты?</p>
+              <input
+                type="radio"
+                name="takePills"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="takePills"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>Какие?</p>
+              <input
+                type="text"
+                name="whatPills"
+                required
+                value={this.state.whatPills}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Проводили ли Вам хирургические вмешательства в течение последнего года?</p>
+              <input
+                type="radio"
+                name="wasSurgeryLastYear"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasSurgeryLastYear"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>Какие?</p>
+              <input
+                type="text"
+                name="whatSurgery"
+                required
+                value={this.state.whatSurgery}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Были ли у Вас необъяснимые лихорадки?</p>
+              <input
+                type="radio"
+                name="wasFever"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasFever"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Были ли Вы в серьезной аварии?</p>
+              <input
+                type="radio"
+                name="wasAccident"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasAccident"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+          
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>
