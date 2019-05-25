@@ -22,8 +22,7 @@ router.post("/register/user", (req, res) => {
     } else {
       const newUser = new User({
         name: req.body.name,
-        password: req.body.password,
-        status: "статус"
+        password: req.body.password
       });
       newUser.question = {text:"текст", isPresent: true},
 
@@ -49,6 +48,7 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
+
   const name = req.body.name;
   const password = req.body.password;
 
@@ -58,8 +58,8 @@ router.post("/login", (req, res) => {
       return res.status(404).json(errors);
     }
 
-    user.status = "залогинился";
-    user.save();
+    user.autoimmuneDesease = true;
+    user.save()
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
