@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/yourappdb")
+  .connect("mongodb+srv://me:HrrCPkFn3jFWZWmG@cluster0-vwzjt.gcp.mongodb.net/test?retryWrites=true")
   .then(() => {
     console.log("connected to db");
     adminSeeder();
