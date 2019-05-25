@@ -14,6 +14,48 @@ const UserSchema = new Schema({
     type: String,
     default: "user"
   },
+  surname: { // фамлия
+    type: String
+  }, 
+  firstName: { // имя
+    type: String
+  },  
+  secondName: { // отчество
+    type: String
+  },  
+  gender: { // пол
+    type: String
+  },  
+  bday: { // день рождения
+    type: String
+  }, 
+  mobilePhone: { // телефон
+    type: String
+  },  
+  email: {
+    type: String
+  }, 
+  otherContacts: { // другие контакты
+    type: String
+  },  
+  adressIndex: { // индекс проживания
+    type: String
+  }, 
+  adressCity: { // город
+    type: String
+  },  
+  adressStreet: { // улица
+    type: String
+  },  
+  adressHouse: { // дом
+    type: String
+  },  
+  adressHousing: { //  корпус
+    type: String
+  },  
+  adressApartment: { // квартира
+    type: String
+  },   
   wasPregnant: { // была ли беременность?
     type: Boolean
   },
