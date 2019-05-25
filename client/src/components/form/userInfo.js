@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import classnames from "classnames";
 
 class userInfo extends Component
 {
@@ -43,21 +48,30 @@ class userInfo extends Component
 
   render()
   {
-    return(
-      <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Имя</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваше имя" name="name" value={this.state.name} onChange={this.onChange}/>
-        </div>
-        
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Фамилия</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваша Фамилия" name="surname" value={this.state.surname} onChange={this.onChange}/>
-        </div>
+    const auth = this.props;
 
-        <button type="submit" class="btn btn-primary">Отправить</button>
-      </form>
-    );
+    const form =
+    <React.Fragment>
+      {!auth.isAuthenticated ?
+      (
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Имя</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваше имя" name="name" value={this.state.name} onChange={this.onChange}/>
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Фамилия</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ваша Фамилия" name="surname" value={this.state.surname} onChange={this.onChange}/>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      ) : null
+      }
+    </React.Fragment>
+
+    return form;
   }
 }
 
