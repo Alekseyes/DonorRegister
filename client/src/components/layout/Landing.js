@@ -23,6 +23,9 @@ class Landing extends Component {
                   <Link to="/login" className="btn btn-lg btn-light">
                     Login6
                   </Link>
+                  <Link to="/form" className="btn btn-lg btn-light">
+                    Form
+                  </Link>
                 </div>
               ) : (
                 <div className="col-md-12 text-center">

@@ -92,7 +92,7 @@ class userInfo extends Component {
   }
 }
 
-Login.propTypes = {
+userInfo.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
@@ -106,4 +106,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { loginUser }
-)(Login);
+)(userInfo);

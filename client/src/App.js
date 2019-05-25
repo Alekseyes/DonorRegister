@@ -11,7 +11,7 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import userInfo from "./components/auth/userInfo"; // импорт формы
+import userInfo from "./components/form/userInfo"; // импорт формы
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -35,6 +35,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/form" component={userInfo} />
             </div>
           </div>
         </Router>
