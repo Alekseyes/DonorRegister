@@ -50,8 +50,8 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">Sign in to your account</p>
+              <h1 className="display-4 text-center">Войти</h1>
+              <p className="lead text-center">Войдите в свой аккаунт</p>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
@@ -59,7 +59,7 @@ class Login extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.name
                     })}
-                    placeholder="Name"
+                    placeholder="Введите логин"
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
@@ -74,7 +74,7 @@ class Login extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password
                     })}
-                    placeholder="Password"
+                    placeholder="Введите пароль"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChange}

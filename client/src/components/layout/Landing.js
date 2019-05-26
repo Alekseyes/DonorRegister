@@ -15,24 +15,20 @@ class Landing extends Component {
             <div className="row">
               {(!auth.isAuthenticated) ? (
                 <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4">WebWeekend+</h1>
-                  <p className="lead"> Create your own application</p>
+                  <h1 className="display-3 mb-4 text-center">Карельский регистр доноров костного мозга</h1>
+                  <p className="lead">Стань потенциальным донором!</p>
                   <hr />
                   <Link to="/register" className="btn btn-lg btn-info mr-2">
-                    Sign Up
+                    Регистрация
                   </Link>
                   <Link to="/login" className="btn btn-lg btn-light">
-                    Login
-                  </Link>
-                  <Link to="/admin" className="btn btn-lg btn-light">
-                    Form
+                    Войти
                   </Link>
                 </div>
               ) : (
                 (auth.user.role === "user") ? (
                   <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4">{`Здравтсвуйте,  ${auth.user.name} `}</h1>
-                  <h1 className="display-3 mb-4"> </h1>
+                  <h1 className="display-3 mb-4 text-center">{`Здравствуйте,  ${auth.user.name} `}</h1>
                   <Link to="/form" className="btn btn-lg btn-light">
                     Заполнить анкету
                   </Link>

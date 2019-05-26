@@ -6,24 +6,24 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import setUserData from "../../actions/formActions";
-import {RadioButton} from './radiobuttons'
 
-let aboutUser = {
-  surname: "",
-  firstName: "",
-  secondName: "",
-  gender: "",
-  bday: "",
-  mobilePhone: "",
-  email: "",
-  otherContacts: "",
-  adressIndex: "",
-  adressCity: "",
-  adressStreet: "",
-  adressHouse: "",
-  adressHousing: "",
+let aboutUser =
+{ 
+  surname: "", 
+  firstName: "", 
+  secondName: "", 
+  gender: "", 
+  bday: "", 
+  mobilePhone: "", 
+  email: "", 
+  otherContacts: "", 
+  adressIndex: "", 
+  adressCity: "", 
+  adressStreet: "", 
+  adressHouse: "", 
+  adressHousing: "", 
   adressApartment: "",
-  wasPregnant: "", // была ли беременность?
+  wasPregnant: "",// была ли беременность?
   numberPregnants: "", // количество беременостей?
   bloodType: "", // группа крови и резус-фактор?
   wasBloodTransfusion: "", //было ли переливание?
@@ -37,7 +37,7 @@ let aboutUser = {
   isSmoking: "", // курите ли вы?
   isDrinking: "", // регулярно ли употребляете алкоголь?
   isBloodDonor: "", // были ли донором крови?
-  isBloodDonorCancel: "", //отстранение от донорства
+  isBloodDonorCancel: "",  //отстранение от донорства
   reasonDonorCancel: "", // причина отстранения донорства крови?
   takePills: "", // принимаете таблетки?
   whatPills: "", // если да, то такие?
@@ -57,7 +57,7 @@ let aboutUser = {
   thyroidDesease: "", // заболевания щитовидной железы?
   autoimmuneDesease: "", // аутоимунные болезни?
   nervousSystemDesease: "", // болезни нервной системы ?
-  mentalProblam: "", // Психические проблемы
+  mentalProblam: "",// Психические проблемы
   hivInfection: "", // Вич-инфекция?
   viralHepatitis: "", // Вирусный геппатит ?
   syphilis: "", // Сифилис?
@@ -76,48 +76,49 @@ let aboutUser = {
   whichAnasthesiaComplications: "", // какие осложнения?
   siblingsAnasthesiaComplications: "", // какие осложнения от анастезии были у родственников?
   concerns: "", // есть ли опасения о возможность стать донором?
-  ethnicGroup: "", // этническая группа
-  question1: "",
-  question2: "",
-  question3: "",
-  question4: ""
 };
 
-class userInfo extends Component {
-  constructor(props) {
+class userInfo extends Component
+{
+  constructor(props)
+  {
     super(props);
 
-    this.state = { ...aboutUser, ...props.auth.user.db, isSend: false }; // перебор компонентов через spread
+    this.state ={...aboutUser, ...props.auth.user.db, isSend:false}; // перебор компонентов через spread
   }
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-    // console.log(e.target.name ,e.target.value);
+  onChange = e =>
+  {
+    this.setState({[e.target.name]: e.target.value});
+    console.log(e.target.name ,e.target.value);
+
   };
 
-  onSubmit = e => {
+  onSubmit = e =>
+  {
     e.preventDefault();
 
-    this.props.setUserData({ ...this.state, auth: this.props.auth }); // ??
+    this.props.setUserData({...this.state, auth: this.props.auth}); // ??
 
     console.log("отправка");
-    console.log(this.state);
-
-    this.setState({ isSend: true });
+    this.setState({isSend: true});
   };
 
-  render() {
+  render()
+  {
     const { auth } = this.props;
-    return (
-      <div className="text-center ourclass">
-        <h1>Информация о пользователе:</h1>
+    console.log(auth);
+    const form =
+    <React.Fragment>
+      <div className="login">
+        <p>Информация о пользователе:</p>
         <form onSubmit={this.onSubmit}>
+
           {/* Основные данные о пользователе */}
 
           <div className="form-group">
-            <label className="">Фамилия:</label>
+            <label>Фамилия:</label>
             <input
-              className="form-control"
               type="text"
               placeholder="Введите фамилию"
               name="surname"
@@ -130,7 +131,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Имя</label>
             <input
-              className="form-control"
               type="text"
               placeholder="Введите имя"
               name="firstName"
@@ -143,7 +143,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Отчество:</label>
             <input
-              className="form-control"
               type="text"
               placeholder="Введите отчество"
               name="secondName"
@@ -156,7 +155,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Дата рождения:</label>
             <input
-              className="form-control"
               type="text"
               placeholder="Введите дату рождения"
               name="bday"
@@ -165,10 +163,10 @@ class userInfo extends Component {
               onChange={this.onChange}
             />
           </div>
+
           <div className="form-group">
-            <div>
-            <RadioButton title={'Пол'} fieldName={'gender'} inputIsRequired={true} input1Value={'да'} onChange={this.onChange} inputIsCheked={this.state.gender} label1={"Мужской"} input2Value={'нет'} label2={"Женский"}></RadioButton>
-              {/* <p>Пол:</p>
+            <fieldset>
+              <legend>Пол:</legend>
               <input
                 type="radio"
                 name="gender"
@@ -187,14 +185,13 @@ class userInfo extends Component {
                 onChange={this.onChange}
                 checked={this.state.gender === "нет"}
               />
-              <label>Женский</label> */}
-            </div>
+              <label>Женский</label>
+            </fieldset>
           </div>
 
           <div className="form-group">
             <label>Мобильный телефон:</label>
             <input
-              className="form-control"
               type="text"
               name="mobilePhone"
               required
@@ -206,7 +203,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Электронная почта:</label>
             <input
-              className="form-control"
               type="text"
               name="email"
               required
@@ -218,7 +214,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Другие актуальные способы связи:</label>
             <input
-              className="form-control"
               type="text"
               name="otherContacts"
               required
@@ -230,7 +225,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Почтовый индекс:</label>
             <input
-              className="form-control"
               type="text"
               name="adressIndex"
               required
@@ -242,7 +236,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Город:</label>
             <input
-              className="form-control"
               type="text"
               name="adressCity"
               required
@@ -254,7 +247,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Улица:</label>
             <input
-              className="form-control"
               type="text"
               name="adressStreet"
               required
@@ -266,7 +258,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Дом:</label>
             <input
-              className="form-control"
               type="text"
               name="adressHouse"
               required
@@ -278,7 +269,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Корпус:</label>
             <input
-              className="form-control"
               type="text"
               name="adressHousing"
               required
@@ -290,7 +280,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Квартира:</label>
             <input
-              className="form-control"
               type="text"
               name="adressApartment"
               required
@@ -311,6 +300,7 @@ class userInfo extends Component {
                 value="да"
                 onChange={this.onChange}
                 checked={this.state.wasPregnant === "да"}
+
               />
               <label>Да</label>
 
@@ -321,12 +311,12 @@ class userInfo extends Component {
                 value="нет"
                 onChange={this.onChange}
                 checked={this.state.wasPregnant === "нет"}
+
               />
               <label>Нет</label>
 
               <p>Сколько раз?</p>
               <input
-                className="form-control"
                 type="text"
                 name="numberPregnants"
                 required
@@ -339,7 +329,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Группа крови и резус фактор</label>
             <input
-              className="form-control"
               type="text"
               placeholder=""
               name="bloodType"
@@ -374,7 +363,6 @@ class userInfo extends Component {
 
               <p>Что переливалось?</p>
               <input
-                className="form-control"
                 type="text"
                 name="whatPoured"
                 required
@@ -383,7 +371,6 @@ class userInfo extends Component {
               />
               <p>Когда (год)?</p>
               <input
-                className="form-control"
                 type="text"
                 name="transfusionYear"
                 required
@@ -392,7 +379,6 @@ class userInfo extends Component {
               />
               <p>Сколько раз?</p>
               <input
-                className="form-control"
                 type="text"
                 name="numberTransfusion"
                 required
@@ -427,7 +413,6 @@ class userInfo extends Component {
 
               <p>На какие аллергены?</p>
               <input
-                className="form-control"
                 type="text"
                 name="whichAllergies"
                 required
@@ -440,7 +425,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Ваш рост (см):</label>
             <input
-              className="form-control"
               type="text"
               placeholder=""
               name="height"
@@ -453,7 +437,6 @@ class userInfo extends Component {
           <div className="form-group">
             <label>Ваш вес (кг):</label>
             <input
-              className="form-control"
               type="text"
               placeholder=""
               name="weigth"
@@ -563,7 +546,6 @@ class userInfo extends Component {
 
               <p>Причина отстранения:</p>
               <input
-                className="form-control"
                 type="text"
                 name="reasonDonorCancel"
                 required
@@ -575,10 +557,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Принимаете ли Вы на данный моммент какие-нибудь медицинские
-                препараты?
-              </p>
+              <p>Принимаете ли Вы на данный моммент какие-нибудь медицинские препараты?</p>
               <input
                 type="radio"
                 name="takePills"
@@ -601,7 +580,6 @@ class userInfo extends Component {
 
               <p>Какие?</p>
               <input
-                className="form-control"
                 type="text"
                 name="whatPills"
                 required
@@ -613,10 +591,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Проводили ли Вам хирургические вмешательства в течение
-                последнего года?
-              </p>
+              <p>Проводили ли Вам хирургические вмешательства в течение последнего года?</p>
               <input
                 type="radio"
                 name="wasSurgeryLastYear"
@@ -639,7 +614,6 @@ class userInfo extends Component {
 
               <p>Какие?</p>
               <input
-                className="form-control"
                 type="text"
                 name="whatSurgery"
                 required
@@ -701,10 +675,7 @@ class userInfo extends Component {
 
           {/* Заболевания */}
 
-          <p>
-            Страдаете ли вы сейчас ил страдали ли Вы ранее следующими
-            заболеваниями:
-          </p>
+          <p>Страдаете ли вы сейчас ил страдали ли Вы ранее следующими заболеваниями:</p>
 
           <div className="form-group">
             <div>
@@ -758,10 +729,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Бронихальная астма или хронический обструктивный бронхит,
-                требующие постоянного лечения
-              </p>
+              <p>Бронихальная астма или хронический обструктивный бронхит, требующие постоянного лечения</p>
               <input
                 type="radio"
                 name="wasAsthma"
@@ -811,10 +779,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Болезни сердца: ишемическая болезнь сердца, стенокардия,
-                аритмия, в прошлом перенесенный инфаркт миокарда
-              </p>
+              <p>Болезни сердца: ишемическая болезнь сердца, стенокардия, аритмия, в прошлом перенесенный инфаркт миокарда</p>
               <input
                 type="radio"
                 name="heartDesease"
@@ -839,10 +804,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Болезни кровеносных сосудов: перенесенный в прошлом инсульт,
-                артериальные тромбозы, повторяющиеся венозные тромбозы
-              </p>
+              <p>Болезни кровеносных сосудов: перенесенный в прошлом инсульт, артериальные тромбозы, повторяющиеся венозные тромбозы</p>
               <input
                 type="radio"
                 name="vascularDesease"
@@ -867,10 +829,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Нарушение свертывающей системы крови: повышенная кровоточивость
-                или повышенная свертываемость крови
-              </p>
+              <p>Нарушение свертывающей системы крови: повышенная кровоточивость или повышенная свертываемость крови</p>
               <input
                 type="radio"
                 name="cougulationDesease"
@@ -970,10 +929,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Аутоимунные болезни: болезнь Крона, ревматоидный артрит,
-                рассеянный склероз, системная красная волчанка и другие
-              </p>
+              <p>Аутоимунные болезни: болезнь Крона, ревматоидный артрит, рассеянный склероз, системная красная волчанка и другие</p>
               <input
                 type="radio"
                 name="autoimmuneDesease"
@@ -998,10 +954,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Болезни нервной системы (судороги, проблемы с межпозвоночными
-                дискамми, в частности смещенный или поврежденный диск)
-              </p>
+              <p>Болезни нервной системы (судороги, проблемы с межпозвоночными дискамми, в частности смещенный или поврежденный диск)</p>
               <input
                 type="radio"
                 name="nervousSystemDesease"
@@ -1151,10 +1104,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Инфекционные болезни: лепра, бабезиоз, трипаносомоз (болезнь
-                Шагаса), энцефалит, малярия, бруцеллез, риккетсиоз, туляремия
-              </p>
+              <p>Инфекционные болезни: лепра, бабезиоз, трипаносомоз (болезнь Шагаса), энцефалит, малярия, бруцеллез, риккетсиоз, туляремия</p>
               <input
                 type="radio"
                 name="infectiousDesease"
@@ -1179,9 +1129,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Лечились ли Вы гормонами гипофиза, в частности, горманами роста
-              </p>
+              <p>Лечились ли Вы гормонами гипофиза, в частности, горманами роста</p>
               <input
                 type="radio"
                 name="healPituitary"
@@ -1256,10 +1204,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Болел ли кто-то из Ваших родственников раком или другими
-                злокачественными новообразованиями
-              </p>
+              <p>Болел ли кто-то из Ваших родственников раком или другими злокачественными новообразованиями</p>
               <input
                 type="radio"
                 name="relativesCancer"
@@ -1284,9 +1229,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Была ли среди членов Вашей семьи болезнь Крейтцфельда - Якоба
-              </p>
+              <p>Была ли среди членов Вашей семьи болезнь Крейтцфельда - Якоба</p>
               <input
                 type="radio"
                 name="relativeCreutzfeld"
@@ -1313,9 +1256,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Знакомы ли Вы с информацией по проблеме СПИДа (ВИЧ) и гепатита
-              </p>
+              <p>Знакомы ли Вы с информацией по проблеме СПИДа (ВИЧ) и гепатита</p>
               <input
                 type="radio"
                 name="knowHepatitHIV"
@@ -1365,11 +1306,7 @@ class userInfo extends Component {
 
           <div className="form-group">
             <div>
-              <p>
-                Были ли Вы подвержены ранее или подвержены сейчас возможности
-                заражения ВИЧ, гепатитом В или С через контакт с членом семьи
-                или на работе
-              </p>
+              <p>Были ли Вы подвержены ранее или подвержены сейчас возможности заражения ВИЧ, гепатитом В или С через контакт с членом семьи или на работе</p>
               <input
                 type="radio"
                 name="dangerHepatitHIV"
@@ -1444,22 +1381,19 @@ class userInfo extends Component {
 
               <p>Какие?</p>
               <input
-                className="form-control"
                 type="text"
                 name="whichAnasthesiaComplications"
                 required
                 value={this.state.whichAnasthesiaComplications}
                 onChange={this.onChange}
               />
+
             </div>
           </div>
-
+          
           <div className="form-group">
             <div>
-              <p>
-                Кто-нибудь из Ваших родственников сталкивался с проблемами,
-                связанными с общей анестезией
-              </p>
+              <p>Кто-нибудь из Ваших родственников сталкивался с проблемами, связанными с общей анестезией</p>
               <input
                 type="radio"
                 name="siblingsAnasthesiaComplications"
@@ -1483,96 +1417,28 @@ class userInfo extends Component {
           </div>
 
           <div className="form-group">
-            <p>
-              Есть ли у Вас еще какие-нибудь опасения или вопросы состояния
-              здоровья, которые могут не позволить Вам стать донором, и которые
-              Вы хотите обсудить? (Пожалуйста, конкретизируйте)
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="concerns"
-              required
-              value={this.state.concerns}
-              onChange={this.onChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <p>
-              Этническая группа
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="ethnicGroup"
-              value={this.state.ethnicGroup}
-              onChange={this.onChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <p>
-              Откуда вы узнали о донорстве кроветворных клеток
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="question1"
-              value={this.state.question1}
-              onChange={this.onChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <p>
-              Когда вы узнали о донорстве кроветворных клеток
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="question2"
-              value={this.state.question2}
-              onChange={this.onChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <p>
-              Что мотивировало Вас стать потенциальным донором кроветворных клеток
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="question3"
-              value={this.state.question3}
-              onChange={this.onChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <p>
-              какое отношение Ваших родных и друзей к Вашему решению стать донором
-            </p>
-            <input
-              className="form-control"
-              type="text"
-              name="question4"
-              value={this.state.question4}
-              onChange={this.onChange}
-            />
+              <p>Есть ли у Вас еще какие-нибудь опасения или вопросы состояния здоровья, которые могут не позволить Вам стать донором, и которые Вы хотите обсудить? (Пожалуйста, конкретизируйте)</p>
+              <input
+                type="text"
+                name="concerns"
+                required
+                value={this.state.concerns}
+                onChange={this.onChange}
+              />
           </div>
 
 
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
 
-          <div hidden={!this.state.isSend}>
+          <div hidden = {!this.state.isSend}>
             <h2>Данные отправлены</h2>
           </div>
         </form>
       </div>
-    );
+    </React.Fragment>
+
+    return form;
   }
 }
 
@@ -1584,7 +1450,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { setUserData }
-)(withRouter(userInfo));
+export default connect(mapStateToProps, {setUserData})(withRouter(userInfo));

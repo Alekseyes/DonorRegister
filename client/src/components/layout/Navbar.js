@@ -7,7 +7,7 @@ import { logoutUser } from "../../actions/authActions";
 class Navbar extends Component {
   onLogoutClick = e => {
     const { logoutUser } = this.props;
-    e.preventDefault();
+    // e.preventDefault();
     logoutUser();
   };
   render() {
@@ -16,7 +16,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/" onClick={this.onLogoutClick}>
-            Logout
+            Выйти
           </Link>
         </li>
       </ul>
@@ -25,12 +25,12 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
-            Sign Up
+            Регистрация
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/login">
-            Login
+            Войти
           </Link>
         </li>
       </ul>
@@ -39,7 +39,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            YourApp
+            Главная
           </Link>
           <button
             className="navbar-toggler"

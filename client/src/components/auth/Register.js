@@ -51,8 +51,8 @@ class Register extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">Create your account</p>
+              <h1 className="display-4 text-center">Регистрация</h1>
+              <p className="lead text-center">Создайте свой аккаунт</p>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
@@ -60,7 +60,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.name
                     })}
-                    placeholder="Name11"
+                    placeholder="Введите логин"
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
@@ -75,7 +75,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password
                     })}
-                    placeholder="Password22"
+                    placeholder="Введите пароль"
                     value={this.state.password}
                     name="password"
                     onChange={this.onChange}
@@ -90,7 +90,7 @@ class Register extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password2
                     })}
-                    placeholder="Confirm Password33"
+                    placeholder="Подтвердите пароль"
                     value={this.state.password2}
                     name="password2"
                     onChange={this.onChange}
