@@ -60,7 +60,8 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name, role: user.role };
+        const payload = { id: user.id, name: user.name, role: user.role, db: {...user._doc} };
+        
         jwt.sign(
           payload,
           keys.secretOrKey,

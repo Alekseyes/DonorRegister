@@ -17,32 +17,21 @@ router.post("/", (req, res) => {
   */
   console.log(req.body);
 
-  /*
-  User.findOne({ name: req.body.name }).then(user => {
-    if (user) {
-      errors.name = "Имя уже используется";
-      return res.status(400).json(errors);
-    } else {
-      const newUser = new User({
-        name: req.body.name,
-        password: req.body.password,
-        status: "статус"
-      });
-      newUser.question = {text:"текст", isPresent: true},
+  
+  User.findOne({ name: req.body.auth.user.name}).then(user => {
 
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
-          newUser
-            .save()
-            .then(user => res.json(user))
-            .catch(err => console.log(err));
-        });
-      });
+    if (user) {
+      for(let n in req.body){
+        if (n === "auth") continue;
+        user[n] = req.body[n];
+      }
+      user.save();
+    } else {
+      errors.name = "не найдено";
+      return res.status(400).json(errors); 
     }
   });
-  */
+  
   return res.status(200).json({cool:"yes"});
 });
 
