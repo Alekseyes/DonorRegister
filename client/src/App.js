@@ -12,7 +12,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import userInfo from "./components/form/userInfo"; // импорт формы
-import admin from "./components/form/admin";
+import Admin from "./components/form/admin";
 import PrintForm from "./components/form/PrintForm";
 
 if (localStorage.jwtToken) {
@@ -38,7 +38,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/form" component={userInfo} />
-              <Route exact path="/admin" component={admin} />
+              <Route exact path="/admin" component={Admin} />
               <Route exact path="/PrintForm" component={PrintForm} />
               
             </div>
