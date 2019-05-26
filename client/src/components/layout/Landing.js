@@ -24,6 +24,9 @@ class Landing extends Component {
                   <Link to="/login" className="btn btn-lg btn-light">
                     Login
                   </Link>
+                  <Link to="/admin" className="btn btn-lg btn-light">
+                    Form
+                  </Link>
                 </div>
               ) : (
                 (auth.user.role === "user") ? (
