@@ -98,7 +98,10 @@ const UserSchema = new Schema({
   isBloodDonor: { // были ли донором крови?
     type: Boolean
   },
-  reasonDonor: { // причина донорства крови?
+  isBloodDonorCancel: { // были ли донором крови?
+    type: Boolean
+  },
+  reasonDonorCancel: { // причина донорства крови?
     type: String
   },
   takePills: { // принимаете таблетки?

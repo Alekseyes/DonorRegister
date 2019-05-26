@@ -316,6 +316,7 @@ class userInfo extends Component
                 name="numberPregnants"
                 required
                 value={this.state.numberPregnants}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -359,6 +360,7 @@ class userInfo extends Component
                 name="whatPoured"
                 required
                 value={this.state.whatPoured}
+                onChange={this.onChange}
               />
               <p>Когда (год)?</p>
               <input
@@ -366,6 +368,7 @@ class userInfo extends Component
                 name="transfusionYear"
                 required
                 value={this.state.transfusionYear}
+                onChange={this.onChange}
               />
               <p>Сколько раз?</p>
               <input
@@ -373,6 +376,7 @@ class userInfo extends Component
                 name="numberTransfusion"
                 required
                 value={this.state.numberTransfusion}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -404,6 +408,7 @@ class userInfo extends Component
                 name="whichAllergies"
                 required
                 value={this.state.whichAllergies}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -528,6 +533,7 @@ class userInfo extends Component
                 name="reasonDonorCancel"
                 required
                 value={this.state.reasonDonorCancel}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -559,6 +565,7 @@ class userInfo extends Component
                 name="whatPills"
                 required
                 value={this.state.whatPills}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -590,6 +597,7 @@ class userInfo extends Component
                 name="whatSurgery"
                 required
                 value={this.state.whatSurgery}
+                onChange={this.onChange}
               />
             </div>
           </div>
@@ -639,7 +647,703 @@ class userInfo extends Component
               <label>Нет</label>
             </div>
           </div>
+
+          {/* Заболевания */}
+
+          <p>Страдаете ли вы сейчас ил страдали ли Вы ранее следующими заболеваниями:</p>
+
+          <div className="form-group">
+            <div>
+              <p>Опухоли (в том числе излеченные)</p>
+              <input
+                type="radio"
+                name="wasCancer"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasCancer"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Сахарный диабет, требующий лекарственного лечения</p>
+              <input
+                type="radio"
+                name="wasDiabet"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasDiabet"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Бронихальная астма или хронический обструктивный бронхит, требующие постоянного лечения</p>
+              <input
+                type="radio"
+                name="wasAsthma"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasAsthma"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Высокое кровяное (артериальное давление)</p>
+              <input
+                type="radio"
+                name="highPressure"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="highPressure"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болезни сердца: ишемическая болезнь сердца, стенокардия, аритмия, в прошлом перенесенный инфаркт миокарда</p>
+              <input
+                type="radio"
+                name="heartDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="heartDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болезни кровеносных сосудов: перенесенный в прошлом инсульт, артериальные тромбозы, повторяющиеся венозные тромбозы</p>
+              <input
+                type="radio"
+                name="vascularDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="vascularDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Нарушение свертывающей системы крови: повышенная кровоточивость или повышенная свертываемость крови</p>
+              <input
+                type="radio"
+                name="cougulationDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="cougulationDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Наследственные заоблевания крови</p>
+              <input
+                type="radio"
+                name="hereditaryBloodDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="hereditaryBloodDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Тяжелые заболевания почек</p>
+              <input
+                type="radio"
+                name="severKidneyDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="severKidneyDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болезни щитовидной железы</p>
+              <input
+                type="radio"
+                name="thyroidDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="thyroidDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Аутоимунные болезни: болезнь Крона, ревматоидный артрит, рассеянный склероз, системная красная волчанка и другие</p>
+              <input
+                type="radio"
+                name="autoimmuneDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="autoimmuneDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болезни нервной системы (судороги, проблемы с межпозвоночными дискамми, в частности смещенный или поврежденный диск)</p>
+              <input
+                type="radio"
+                name="nervousSystemDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="nervousSystemDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Психические проблемы (депрессия или другие состояния)</p>
+              <input
+                type="radio"
+                name="mentalProblam"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="mentalProblam"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>ВИЧ-инфекция (СПИД)</p>
+              <input
+                type="radio"
+                name="hivInfection"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="hivInfection"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Острый или хронический вирусный гепатит</p>
+              <input
+                type="radio"
+                name="viralHepatitis"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="viralHepatitis"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Сифилис</p>
+              <input
+                type="radio"
+                name="syphilis"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="syphilis"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Туберкулез</p>
+              <input
+                type="radio"
+                name="tuberculosis"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="tuberculosis"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Инфекционные болезни: лепра, бабезиоз, трипаносомоз (болезнь Шагаса), энцефалит, малярия, бруцеллез, риккетсиоз, туляремия</p>
+              <input
+                type="radio"
+                name="infectiousDesease"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="infectiousDesease"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Лечились ли Вы гормонами гипофиза, в частности, горманами роста</p>
+              <input
+                type="radio"
+                name="healPituitary"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="healPituitary"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Производилась ли Вам транспантация тканей или органов</p>
+              <input
+                type="radio"
+                name="tissueTransplantation"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="tissueTransplantation"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болел ли кто-то из Ваших родственников лейкемией (лейкозом)</p>
+              <input
+                type="radio"
+                name="relativesLeukemia"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="relativesLeukemia"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Болел ли кто-то из Ваших родственников раком или другими злокачественными новообразованиями</p>
+              <input
+                type="radio"
+                name="relativesCancer"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="relativesCancer"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Была ли среди членов Вашей семьи болезнь Крейтцфельда - Якоба</p>
+              <input
+                type="radio"
+                name="relativeCreutzfeld"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="relativeCreutzfeld"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <p>Вопросы, относящиеся к риску инфекций ВИЧ, гепатитов В и С</p>
+
+          <div className="form-group">
+            <div>
+              <p>Знакомы ли Вы с информацией по проблеме СПИДа (ВИЧ) и гепатита</p>
+              <input
+                type="radio"
+                name="knowHepatitHIV"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="knowHepatitHIV"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Понятна ли Вам эта инофрмация</p>
+              <input
+                type="radio"
+                name="clearInformation"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="clearInformation"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Были ли Вы подвержены ранее или подвержены сейчас возможности заражения ВИЧ, гепатитом В или С через контакт с членом семьи или на работе</p>
+              <input
+                type="radio"
+                name="dangerHepatitHIV"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="dangerHepatitHIV"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <p>Вопросы, относящиеся к рискам анестезии:</p>
+
+          <div className="form-group">
+            <div>
+              <p>Вам когда-нибудь делали общую анестезию</p>
+              <input
+                type="radio"
+                name="wasGeneralAnesthesia"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasGeneralAnesthesia"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div>
+              <p>Были ли у Вас осложнения или реакции</p>
+              <input
+                type="radio"
+                name="wasAnasthesiaComplications"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="wasAnasthesiaComplications"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+
+              <p>Какие?</p>
+              <input
+                type="text"
+                name="whichAnasthesiaComplications"
+                required
+                value={this.state.whatSurgery}
+                onChange={this.onChange}
+              />
+
+            </div>
+          </div>
           
+          <div className="form-group">
+            <div>
+              <p>Кто-нибудь из Ваших родственников сталкивался с проблемами, связанными с общей анестезией</p>
+              <input
+                type="radio"
+                name="siblingsAnasthesiaComplications"
+                required
+                value="да"
+                onClick={this.onClick}
+              />
+              <label>Да</label>
+
+              <input
+                type="radio"
+                name="siblingsAnasthesiaComplications"
+                required
+                value="нет"
+                onClick={this.onClick}
+              />
+              <label>Нет</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+              <p>Есть ли у Вас еще какие-нибудь опасения или вопросы состояния здоровья, которые могут не позволить Вам стать донором, и которые Вы хотите обсудить? (Пожалуйста, конкретизируйте)</p>
+              <input
+                type="text"
+                name="whichAnasthesiaComplications"
+                required
+                value={this.state.whatSurgery}
+                onChange={this.onChange}
+              />
+          </div>
+
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>
