@@ -80,22 +80,18 @@ let aboutUser =
 
 class userInfo extends Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
 
-    this.state = aboutUser;
-  }
-
-  onClick = (e) =>
-  { 
-    this.state.gender = e.target.value; 
-    console.log(this.state.gender); 
+    this.state ={...aboutUser, ...props.auth.user.db}; // перебор компонентов через spread
   }
 
   onChange = e =>
   {
     this.setState({[e.target.name]: e.target.value});
+    console.log(e.target.name ,e.target.value);
+
   };
 
   onSubmit = e =>
@@ -173,7 +169,7 @@ class userInfo extends Component
                 name="gender"
                 required
                 value="мужской"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Мужской</label>
 
@@ -182,7 +178,7 @@ class userInfo extends Component
                 name="gender"
                 required
                 value="женский"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Женский</label>
             </fieldset>
@@ -297,7 +293,7 @@ class userInfo extends Component
                 name="gender"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -306,7 +302,7 @@ class userInfo extends Component
                 name="gender"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -341,7 +337,7 @@ class userInfo extends Component
                 name="wasBloodTransfusion"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -350,7 +346,7 @@ class userInfo extends Component
                 name="wasBloodTransfusion"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -389,7 +385,7 @@ class userInfo extends Component
                 name="haveAllergies"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -398,7 +394,7 @@ class userInfo extends Component
                 name="haveAllergies"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -445,7 +441,7 @@ class userInfo extends Component
                 name="isSmoking"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -454,7 +450,7 @@ class userInfo extends Component
                 name="isSmoking"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -468,7 +464,7 @@ class userInfo extends Component
                 name="isDrinking"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -477,7 +473,7 @@ class userInfo extends Component
                 name="isDrinking"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -491,7 +487,7 @@ class userInfo extends Component
                 name="isBloodDonor"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -500,7 +496,7 @@ class userInfo extends Component
                 name="isBloodDonor"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -514,7 +510,7 @@ class userInfo extends Component
                 name="isBloodDonorCancel"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -523,7 +519,7 @@ class userInfo extends Component
                 name="isBloodDonorCancel"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -546,7 +542,7 @@ class userInfo extends Component
                 name="takePills"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -555,7 +551,7 @@ class userInfo extends Component
                 name="takePills"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -578,7 +574,7 @@ class userInfo extends Component
                 name="wasSurgeryLastYear"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -587,7 +583,7 @@ class userInfo extends Component
                 name="wasSurgeryLastYear"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -610,7 +606,7 @@ class userInfo extends Component
                 name="wasFever"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -619,7 +615,7 @@ class userInfo extends Component
                 name="wasFever"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -633,7 +629,7 @@ class userInfo extends Component
                 name="wasAccident"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -642,7 +638,7 @@ class userInfo extends Component
                 name="wasAccident"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -660,7 +656,7 @@ class userInfo extends Component
                 name="wasCancer"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -669,7 +665,7 @@ class userInfo extends Component
                 name="wasCancer"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -683,7 +679,7 @@ class userInfo extends Component
                 name="wasDiabet"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -692,7 +688,7 @@ class userInfo extends Component
                 name="wasDiabet"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -706,7 +702,7 @@ class userInfo extends Component
                 name="wasAsthma"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -715,7 +711,7 @@ class userInfo extends Component
                 name="wasAsthma"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -729,7 +725,7 @@ class userInfo extends Component
                 name="highPressure"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -738,7 +734,7 @@ class userInfo extends Component
                 name="highPressure"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -752,7 +748,7 @@ class userInfo extends Component
                 name="heartDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -761,7 +757,7 @@ class userInfo extends Component
                 name="heartDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -775,7 +771,7 @@ class userInfo extends Component
                 name="vascularDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -784,7 +780,7 @@ class userInfo extends Component
                 name="vascularDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -798,7 +794,7 @@ class userInfo extends Component
                 name="cougulationDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -807,7 +803,7 @@ class userInfo extends Component
                 name="cougulationDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -821,7 +817,7 @@ class userInfo extends Component
                 name="hereditaryBloodDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -830,7 +826,7 @@ class userInfo extends Component
                 name="hereditaryBloodDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -844,7 +840,7 @@ class userInfo extends Component
                 name="severKidneyDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -853,7 +849,7 @@ class userInfo extends Component
                 name="severKidneyDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -867,7 +863,7 @@ class userInfo extends Component
                 name="thyroidDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -876,7 +872,7 @@ class userInfo extends Component
                 name="thyroidDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -890,7 +886,7 @@ class userInfo extends Component
                 name="autoimmuneDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -899,7 +895,7 @@ class userInfo extends Component
                 name="autoimmuneDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -913,7 +909,7 @@ class userInfo extends Component
                 name="nervousSystemDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -922,7 +918,7 @@ class userInfo extends Component
                 name="nervousSystemDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -936,7 +932,7 @@ class userInfo extends Component
                 name="mentalProblam"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -945,7 +941,7 @@ class userInfo extends Component
                 name="mentalProblam"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -959,7 +955,7 @@ class userInfo extends Component
                 name="hivInfection"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -968,7 +964,7 @@ class userInfo extends Component
                 name="hivInfection"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -982,7 +978,7 @@ class userInfo extends Component
                 name="viralHepatitis"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -991,7 +987,7 @@ class userInfo extends Component
                 name="viralHepatitis"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1005,7 +1001,7 @@ class userInfo extends Component
                 name="syphilis"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1014,7 +1010,7 @@ class userInfo extends Component
                 name="syphilis"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1028,7 +1024,7 @@ class userInfo extends Component
                 name="tuberculosis"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1037,7 +1033,7 @@ class userInfo extends Component
                 name="tuberculosis"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1051,7 +1047,7 @@ class userInfo extends Component
                 name="infectiousDesease"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1060,7 +1056,7 @@ class userInfo extends Component
                 name="infectiousDesease"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1074,7 +1070,7 @@ class userInfo extends Component
                 name="healPituitary"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1083,7 +1079,7 @@ class userInfo extends Component
                 name="healPituitary"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1097,7 +1093,7 @@ class userInfo extends Component
                 name="tissueTransplantation"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1106,7 +1102,7 @@ class userInfo extends Component
                 name="tissueTransplantation"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1120,7 +1116,7 @@ class userInfo extends Component
                 name="relativesLeukemia"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1129,7 +1125,7 @@ class userInfo extends Component
                 name="relativesLeukemia"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1143,7 +1139,7 @@ class userInfo extends Component
                 name="relativesCancer"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1152,7 +1148,7 @@ class userInfo extends Component
                 name="relativesCancer"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1166,7 +1162,7 @@ class userInfo extends Component
                 name="relativeCreutzfeld"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1175,7 +1171,7 @@ class userInfo extends Component
                 name="relativeCreutzfeld"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1191,7 +1187,7 @@ class userInfo extends Component
                 name="knowHepatitHIV"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1200,7 +1196,7 @@ class userInfo extends Component
                 name="knowHepatitHIV"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1214,7 +1210,7 @@ class userInfo extends Component
                 name="clearInformation"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1223,7 +1219,7 @@ class userInfo extends Component
                 name="clearInformation"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1237,7 +1233,7 @@ class userInfo extends Component
                 name="dangerHepatitHIV"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1246,7 +1242,7 @@ class userInfo extends Component
                 name="dangerHepatitHIV"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1262,7 +1258,7 @@ class userInfo extends Component
                 name="wasGeneralAnesthesia"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1271,7 +1267,7 @@ class userInfo extends Component
                 name="wasGeneralAnesthesia"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1285,7 +1281,7 @@ class userInfo extends Component
                 name="wasAnasthesiaComplications"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1294,7 +1290,7 @@ class userInfo extends Component
                 name="wasAnasthesiaComplications"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
 
@@ -1318,7 +1314,7 @@ class userInfo extends Component
                 name="siblingsAnasthesiaComplications"
                 required
                 value="да"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Да</label>
 
@@ -1327,7 +1323,7 @@ class userInfo extends Component
                 name="siblingsAnasthesiaComplications"
                 required
                 value="нет"
-                onClick={this.onClick}
+                onClick={this.onChange}
               />
               <label>Нет</label>
             </div>

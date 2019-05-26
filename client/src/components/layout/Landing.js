@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 class Landing extends Component {
   render() {
     const { auth } = this.props;
+    console.log({auth});
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner">
