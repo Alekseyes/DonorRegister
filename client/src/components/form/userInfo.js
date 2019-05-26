@@ -84,7 +84,7 @@ class userInfo extends Component
   {
     super(props);
 
-    this.state ={...aboutUser, ...props.auth.user.db}; // перебор компонентов через spread
+    this.state ={...aboutUser, ...props.auth.user.db, isSend:false}; // перебор компонентов через spread
   }
 
   onChange = e =>
@@ -99,12 +99,15 @@ class userInfo extends Component
     e.preventDefault();
 
     this.props.setUserData({...this.state, auth: this.props.auth}); // ??
+
+    console.log("отправка");
+    this.setState({isSend: true});
   };
 
   render()
   {
     const { auth } = this.props;
-
+    console.log(auth);
     const form =
     <React.Fragment>
       <div className="login">
@@ -168,8 +171,9 @@ class userInfo extends Component
                 type="radio"
                 name="gender"
                 required
-                value="мужской"
-                onClick={this.onChange}
+                value="да"
+                onChange={this.onChange}
+                checked={this.state.gender === "да"}
               />
               <label>Мужской</label>
 
@@ -177,8 +181,9 @@ class userInfo extends Component
                 type="radio"
                 name="gender"
                 required
-                value="женский"
-                onClick={this.onChange}
+                value="нет"
+                onChange={this.onChange}
+                checked={this.state.gender === "нет"}
               />
               <label>Женский</label>
             </fieldset>
@@ -290,19 +295,23 @@ class userInfo extends Component
               <p>Были ли у Вас беременности</p>
               <input
                 type="radio"
-                name="gender"
+                name="wasPregnant"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasPregnant === "да"}
+
               />
               <label>Да</label>
 
               <input
                 type="radio"
-                name="gender"
+                name="wasPregnant"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasPregnant === "нет"}
+
               />
               <label>Нет</label>
 
@@ -337,7 +346,8 @@ class userInfo extends Component
                 name="wasBloodTransfusion"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasBloodTransfusion === "да"}
               />
               <label>Да</label>
 
@@ -346,7 +356,8 @@ class userInfo extends Component
                 name="wasBloodTransfusion"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasBloodTransfusion === "нет"}
               />
               <label>Нет</label>
 
@@ -385,7 +396,8 @@ class userInfo extends Component
                 name="haveAllergies"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.haveAllergies === "да"}
               />
               <label>Да</label>
 
@@ -394,7 +406,8 @@ class userInfo extends Component
                 name="haveAllergies"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.haveAllergies === "нет"}
               />
               <label>Нет</label>
 
@@ -441,7 +454,8 @@ class userInfo extends Component
                 name="isSmoking"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isSmoking === "да"}
               />
               <label>Да</label>
 
@@ -450,7 +464,8 @@ class userInfo extends Component
                 name="isSmoking"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isSmoking === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -464,7 +479,8 @@ class userInfo extends Component
                 name="isDrinking"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isDrinking === "да"}
               />
               <label>Да</label>
 
@@ -473,7 +489,8 @@ class userInfo extends Component
                 name="isDrinking"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isDrinking === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -487,7 +504,8 @@ class userInfo extends Component
                 name="isBloodDonor"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isBloodDonor === "да"}
               />
               <label>Да</label>
 
@@ -496,7 +514,8 @@ class userInfo extends Component
                 name="isBloodDonor"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isBloodDonor === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -510,7 +529,8 @@ class userInfo extends Component
                 name="isBloodDonorCancel"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isBloodDonorCancel === "да"}
               />
               <label>Да</label>
 
@@ -519,7 +539,8 @@ class userInfo extends Component
                 name="isBloodDonorCancel"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.isBloodDonorCancel === "нет"}
               />
               <label>Нет</label>
 
@@ -542,7 +563,8 @@ class userInfo extends Component
                 name="takePills"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.takePills === "да"}
               />
               <label>Да</label>
 
@@ -551,7 +573,8 @@ class userInfo extends Component
                 name="takePills"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.takePills === "нет"}
               />
               <label>Нет</label>
 
@@ -574,7 +597,8 @@ class userInfo extends Component
                 name="wasSurgeryLastYear"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasSurgeryLastYear === "да"}
               />
               <label>Да</label>
 
@@ -583,7 +607,8 @@ class userInfo extends Component
                 name="wasSurgeryLastYear"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasSurgeryLastYear === "нет"}
               />
               <label>Нет</label>
 
@@ -606,7 +631,8 @@ class userInfo extends Component
                 name="wasFever"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasFever === "да"}
               />
               <label>Да</label>
 
@@ -615,7 +641,8 @@ class userInfo extends Component
                 name="wasFever"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasFever === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -629,7 +656,8 @@ class userInfo extends Component
                 name="wasAccident"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasAccident === "да"}
               />
               <label>Да</label>
 
@@ -638,7 +666,8 @@ class userInfo extends Component
                 name="wasAccident"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasAccident === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -656,7 +685,8 @@ class userInfo extends Component
                 name="wasCancer"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasCancer === "да"}
               />
               <label>Да</label>
 
@@ -665,7 +695,8 @@ class userInfo extends Component
                 name="wasCancer"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasCancer === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -679,7 +710,8 @@ class userInfo extends Component
                 name="wasDiabet"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasDiabet === "да"}
               />
               <label>Да</label>
 
@@ -688,7 +720,8 @@ class userInfo extends Component
                 name="wasDiabet"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.wasDiabet === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -702,7 +735,7 @@ class userInfo extends Component
                 name="wasAsthma"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -711,7 +744,7 @@ class userInfo extends Component
                 name="wasAsthma"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -725,7 +758,7 @@ class userInfo extends Component
                 name="highPressure"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -734,7 +767,7 @@ class userInfo extends Component
                 name="highPressure"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -748,7 +781,7 @@ class userInfo extends Component
                 name="heartDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -757,7 +790,7 @@ class userInfo extends Component
                 name="heartDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -771,7 +804,7 @@ class userInfo extends Component
                 name="vascularDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -780,7 +813,7 @@ class userInfo extends Component
                 name="vascularDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -794,7 +827,7 @@ class userInfo extends Component
                 name="cougulationDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -803,7 +836,7 @@ class userInfo extends Component
                 name="cougulationDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -817,7 +850,7 @@ class userInfo extends Component
                 name="hereditaryBloodDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -826,7 +859,7 @@ class userInfo extends Component
                 name="hereditaryBloodDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -840,7 +873,7 @@ class userInfo extends Component
                 name="severKidneyDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -849,7 +882,7 @@ class userInfo extends Component
                 name="severKidneyDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -863,7 +896,7 @@ class userInfo extends Component
                 name="thyroidDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -872,7 +905,7 @@ class userInfo extends Component
                 name="thyroidDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -886,7 +919,7 @@ class userInfo extends Component
                 name="autoimmuneDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -895,7 +928,7 @@ class userInfo extends Component
                 name="autoimmuneDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -909,7 +942,7 @@ class userInfo extends Component
                 name="nervousSystemDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -918,7 +951,7 @@ class userInfo extends Component
                 name="nervousSystemDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -932,7 +965,7 @@ class userInfo extends Component
                 name="mentalProblam"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -941,7 +974,7 @@ class userInfo extends Component
                 name="mentalProblam"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -955,7 +988,7 @@ class userInfo extends Component
                 name="hivInfection"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -964,7 +997,7 @@ class userInfo extends Component
                 name="hivInfection"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -978,7 +1011,7 @@ class userInfo extends Component
                 name="viralHepatitis"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -987,7 +1020,7 @@ class userInfo extends Component
                 name="viralHepatitis"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1001,7 +1034,7 @@ class userInfo extends Component
                 name="syphilis"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1010,7 +1043,7 @@ class userInfo extends Component
                 name="syphilis"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1024,7 +1057,7 @@ class userInfo extends Component
                 name="tuberculosis"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1033,7 +1066,7 @@ class userInfo extends Component
                 name="tuberculosis"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1047,7 +1080,7 @@ class userInfo extends Component
                 name="infectiousDesease"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1056,7 +1089,7 @@ class userInfo extends Component
                 name="infectiousDesease"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1070,7 +1103,7 @@ class userInfo extends Component
                 name="healPituitary"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1079,7 +1112,7 @@ class userInfo extends Component
                 name="healPituitary"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1093,7 +1126,7 @@ class userInfo extends Component
                 name="tissueTransplantation"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1102,7 +1135,7 @@ class userInfo extends Component
                 name="tissueTransplantation"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1116,7 +1149,7 @@ class userInfo extends Component
                 name="relativesLeukemia"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1125,7 +1158,7 @@ class userInfo extends Component
                 name="relativesLeukemia"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1139,7 +1172,7 @@ class userInfo extends Component
                 name="relativesCancer"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1148,7 +1181,7 @@ class userInfo extends Component
                 name="relativesCancer"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1162,7 +1195,7 @@ class userInfo extends Component
                 name="relativeCreutzfeld"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1171,7 +1204,7 @@ class userInfo extends Component
                 name="relativeCreutzfeld"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1187,7 +1220,7 @@ class userInfo extends Component
                 name="knowHepatitHIV"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1196,7 +1229,7 @@ class userInfo extends Component
                 name="knowHepatitHIV"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1210,7 +1243,7 @@ class userInfo extends Component
                 name="clearInformation"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1219,7 +1252,7 @@ class userInfo extends Component
                 name="clearInformation"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1233,7 +1266,7 @@ class userInfo extends Component
                 name="dangerHepatitHIV"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1242,7 +1275,7 @@ class userInfo extends Component
                 name="dangerHepatitHIV"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1258,7 +1291,7 @@ class userInfo extends Component
                 name="wasGeneralAnesthesia"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1267,7 +1300,7 @@ class userInfo extends Component
                 name="wasGeneralAnesthesia"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
             </div>
@@ -1281,7 +1314,7 @@ class userInfo extends Component
                 name="wasAnasthesiaComplications"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Да</label>
 
@@ -1290,7 +1323,7 @@ class userInfo extends Component
                 name="wasAnasthesiaComplications"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
               />
               <label>Нет</label>
 
@@ -1299,7 +1332,7 @@ class userInfo extends Component
                 type="text"
                 name="whichAnasthesiaComplications"
                 required
-                value={this.state.whatSurgery}
+                value={this.state.whichAnasthesiaComplications}
                 onChange={this.onChange}
               />
 
@@ -1314,7 +1347,9 @@ class userInfo extends Component
                 name="siblingsAnasthesiaComplications"
                 required
                 value="да"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.siblingsAnasthesiaComplications === "да"}
+                
               />
               <label>Да</label>
 
@@ -1323,7 +1358,8 @@ class userInfo extends Component
                 name="siblingsAnasthesiaComplications"
                 required
                 value="нет"
-                onClick={this.onChange}
+                onChange={this.onChange}
+                checked={this.state.siblingsAnasthesiaComplications === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1333,15 +1369,20 @@ class userInfo extends Component
               <p>Есть ли у Вас еще какие-нибудь опасения или вопросы состояния здоровья, которые могут не позволить Вам стать донором, и которые Вы хотите обсудить? (Пожалуйста, конкретизируйте)</p>
               <input
                 type="text"
-                name="whichAnasthesiaComplications"
+                name="concerns"
                 required
-                value={this.state.whatSurgery}
+                value={this.state.concerns}
                 onChange={this.onChange}
               />
           </div>
 
 
+
           <input type="submit" className="btn btn-info btn-block mt-4" />
+
+          <div hidden = {!this.state.isSend}>
+            <h2>Данные отправлены</h2>
+          </div>
         </form>
       </div>
     </React.Fragment>
