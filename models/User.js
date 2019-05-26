@@ -57,7 +57,7 @@ const UserSchema = new Schema({
     type: String
   },   
   wasPregnant: { // была ли беременность?
-    type: Boolean
+    type: String
   },
   numberPregnants: { // количество беременостей?
     type: Number
@@ -66,7 +66,7 @@ const UserSchema = new Schema({
     type: String
   },
   wasBloodTransfusion: { //было ли переливание?
-    type: Boolean
+    type: String
   },
   whatPoured: { // что переливалось?
     type: String
@@ -78,7 +78,7 @@ const UserSchema = new Schema({
     type: Number
   },
   haveAllergies: { // есть ли аллергия?
-    type: Boolean
+    type: String
   },
   whichAllergies: { // какая аллергия?
     type: String
@@ -90,121 +90,121 @@ const UserSchema = new Schema({
     type: Number
   },
   isSmoking: { // курите ли вы?
-    type: Boolean
+    type: String
   },
   isDrinking: { // регулярно ли употребляете алкоголь?
-    type: Boolean
+    type: String
   },
   isBloodDonor: { // были ли донором крови?
-    type: Boolean
+    type: String
   },
   isBloodDonorCancel: { // были ли донором крови?
-    type: Boolean
+    type: String
   },
   reasonDonorCancel: { // причина донорства крови?
     type: String
   },
   takePills: { // принимаете таблетки?
-    type: Boolean
+    type: String
   },
   whatPills: { // если да, то такие?
     type: String
   },
   wasSurgeryLastYear: { // была ли хирургия в последний год?
-    type: Boolean
+    type: String
   },
   whatSurgery: { // какая хирургия была?
     type: String
   },
   wasFever: { // была ли лихорадка?
-    type: Boolean
+    type: String
   },
   wasAccident: { // была ли авария?
-    type: Boolean
+    type: String
   },
   wasCancer: { // были ли опухоли?
-    type: Boolean
+    type: String
   },
   wasDiabet: { // есть диабет?
-    type: Boolean
+    type: String
   },
   wasAsthma: { // была астма?
-    type: Boolean
+    type: String
   },
   highPressure: { // высокое кровяное давление?
-    type: Boolean
+    type: String
   },
   heartDesease: { // болезни сердца?
-    type: Boolean
+    type: String
   },
   vascularDesease: { // болезни сосудов?
-    type: Boolean
+    type: String
   },
   cougulationDesease: { // кровь свертывается?
-    type: Boolean
+    type: String
   },
   hereditaryBloodDesease: { // наследственные заболевания крови?
-    type: Boolean
+    type: String
   },
   severKidneyDesease: { // тяжелые заболевания почек?
-    type: Boolean
+    type: String
   },
   thyroidDesease: { // заболевания щитовидной железы?
-    type: Boolean
+    type: String
   },
   autoimmuneDesease: { // аутоимунные болезни?
-    type: Boolean
+    type: String
   },
   nervousSystemDesease: { // болезни нервной системы ?
-    type: Boolean
+    type: String
   },
   mentalProblam: { // Психические проблемы
-    type: Boolean
+    type: String
   },
   hivInfection: { // Вич-инфекция?
-    type: Boolean
+    type: String
   },
   viralHepatitis: { // Вирусный геппатит ?
-    type: Boolean
+    type: String
   },
   syphilis: { // Сифилис?
-    type: Boolean
+    type: String
   },
   tuberculosis: { // Туберкулез?
-    type: Boolean
+    type: String
   },
   infectiousDesease: { // Инфекционные болезни?
-    type: Boolean
+    type: String
   },
   healPituitary: { // Лечились ли вы гормонами гипофиза?
-    type: Boolean
+    type: String
   },
   tissueTransplantation: { // Трансплантация тканей?
-    type: Boolean
+    type: String
   },
   relativesLeukemia: { // Болели ли родственники лейкемией?
-    type: Boolean
+    type: String
   },
   relativesCancer: { // Болели ли родственники раком?
-    type: Boolean
+    type: String
   },
   relativeCreutzfeld: { // Болели ли родственники Крейтцфельдом?
-    type: Boolean
+    type: String
   },
   knowHepatitHIV: { // знакомы с Гепатитом, ВИЧ?
-    type: Boolean
+    type: String
   },
   clearInformation: { // понятна информация выше?
-    type: Boolean
+    type: String
   },
   dangerHepatitHIV: { // в группе риска Гепатит или ВИЧ?
-    type: Boolean
+    type: String
   },
   wasGeneralAnesthesia: { // была общая анастезия?
-    type: Boolean
+    type: String
   },
   wasAnasthesiaComplications: { // были ли осложнения от анастезии?
-    type: Boolean
+    type: String
   },
   whichAnasthesiaComplications: { // какие осложнения?
     type: String

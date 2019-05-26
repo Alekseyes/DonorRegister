@@ -5,6 +5,7 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const testForm = require("./routes/api/testForm");
+const admin = require("./routes/api/admin");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +22,7 @@ require("./config/passport")(passport);
 
 app.use("/api/users", users);
 app.use("/api/testForm", testForm);
+app.use("/api/admin", admin);
 
 const port = process.env.PORT || 5000;
 
