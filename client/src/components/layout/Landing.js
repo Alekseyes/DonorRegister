@@ -26,7 +26,16 @@ class Landing extends Component {
                   </Link>
                 </div>
               ) : (
-                (auth.user.role === "user") ? (
+                (auth.user.role === "admin") ? (
+                  <div className="col-md-12 text-center">
+                  <h1 className="display-3 mb-4">{`Здравтсвуйте,  ${auth.user.name} `}</h1>
+                  <h1 className="display-3 mb-4"> </h1>
+                  <Link to="/admin" className="btn btn-lg btn-light">
+                    Вывести список доноров
+                  </Link>
+                </div>
+
+                ) : (
                   <div className="col-md-12 text-center">
                   <h1 className="display-3 mb-4 text-center">{`Здравствуйте,  ${auth.user.name} `}</h1>
                   <Link to="/form" className="btn btn-lg btn-light">
@@ -34,7 +43,7 @@ class Landing extends Component {
                   </Link>
                 </div>
 
-                ) : null // перенаправление
+                ) // перенаправление
               )}
             </div>
           </div>

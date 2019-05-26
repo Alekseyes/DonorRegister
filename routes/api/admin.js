@@ -15,18 +15,28 @@ router.get("/", (req, res) => {
     return res.status(400).json(errors);
   }
   */
-  console.log(req.body);
+  console.log(req.query.uname);
 
-  
-  User.find({}).then(users => {
-    if (users) {
-        return res.status(200).json(users);
-    } else {
-      errors.name = "не найдено";
-      return res.status(400).json(errors); 
-    }
+  if (req.query.uname){
+    User.findOne({name: req.query.uname}).then(user => {
+      if (!user) {
+        errors.name = "Пользователь не найден";
+        return res.status(404).json(errors);
+      }
+      return res.status(200).json({...user._doc});
+    });
 
-  });
+  }else{
+    User.find({}).then(users => {
+      if (users) {
+          return res.status(200).json(users);
+      } else {
+        errors.name = "не найдено";
+        return res.status(400).json(errors); 
+      }
+
+    });
+  };
   
   
 });
