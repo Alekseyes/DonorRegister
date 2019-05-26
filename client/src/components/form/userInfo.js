@@ -736,6 +736,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.wasAsthma === "да"}
               />
               <label>Да</label>
 
@@ -745,6 +746,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.wasAsthma === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -759,6 +761,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.highPressure === "да"}
               />
               <label>Да</label>
 
@@ -768,6 +771,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.highPressure === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -782,6 +786,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.heartDesease === "да"}
               />
               <label>Да</label>
 
@@ -791,6 +796,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.heartDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -805,6 +811,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.vascularDesease === "да"}
               />
               <label>Да</label>
 
@@ -814,6 +821,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.vascularDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -828,6 +836,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.cougulationDesease === "да"}
               />
               <label>Да</label>
 
@@ -837,6 +846,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.cougulationDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -851,6 +861,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.hereditaryBloodDesease === "да"}
               />
               <label>Да</label>
 
@@ -860,6 +871,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.hereditaryBloodDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -874,6 +886,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.severKidneyDesease === "да"}
               />
               <label>Да</label>
 
@@ -883,6 +896,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.severKidneyDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -897,6 +911,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.thyroidDesease === "да"}
               />
               <label>Да</label>
 
@@ -906,6 +921,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.thyroidDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -920,6 +936,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.autoimmuneDesease === "да"}
               />
               <label>Да</label>
 
@@ -929,6 +946,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.autoimmuneDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -943,6 +961,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.nervousSystemDesease === "да"}
               />
               <label>Да</label>
 
@@ -952,6 +971,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.nervousSystemDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -966,6 +986,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.mentalProblam === "да"}
               />
               <label>Да</label>
 
@@ -975,6 +996,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.mentalProblam === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -989,6 +1011,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.hivInfection === "да"}
               />
               <label>Да</label>
 
@@ -998,6 +1021,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.hivInfection === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1012,6 +1036,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.viralHepatitis === "да"}
               />
               <label>Да</label>
 
@@ -1021,6 +1046,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.viralHepatitis === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1035,6 +1061,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.syphilis === "да"}
               />
               <label>Да</label>
 
@@ -1044,6 +1071,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.syphilis === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1058,6 +1086,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.tuberculosis === "да"}
               />
               <label>Да</label>
 
@@ -1067,6 +1096,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.tuberculosis === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1081,6 +1111,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.infectiousDesease === "да"}
               />
               <label>Да</label>
 
@@ -1090,6 +1121,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.infectiousDesease === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1104,6 +1136,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.healPituitary === "да"}
               />
               <label>Да</label>
 
@@ -1113,6 +1146,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.healPituitary === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1127,6 +1161,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.tissueTransplantation === "да"}
               />
               <label>Да</label>
 
@@ -1136,6 +1171,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.tissueTransplantation === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1150,6 +1186,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.relativesLeukemia === "да"}
               />
               <label>Да</label>
 
@@ -1159,6 +1196,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.relativesLeukemia === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1173,6 +1211,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.relativesCancer === "да"}
               />
               <label>Да</label>
 
@@ -1182,6 +1221,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.relativesCancer === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1196,6 +1236,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.relativeCreutzfeld === "да"}
               />
               <label>Да</label>
 
@@ -1205,6 +1246,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.relativeCreutzfeld === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1221,6 +1263,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.knowHepatitHIV === "да"}
               />
               <label>Да</label>
 
@@ -1230,6 +1273,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.knowHepatitHIV === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1244,6 +1288,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.clearInformation === "да"}
               />
               <label>Да</label>
 
@@ -1253,6 +1298,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.clearInformation === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1267,6 +1313,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.dangerHepatitHIV === "да"}
               />
               <label>Да</label>
 
@@ -1276,6 +1323,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.dangerHepatitHIV === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1292,6 +1340,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.wasGeneralAnesthesia === "да"}
               />
               <label>Да</label>
 
@@ -1301,6 +1350,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.wasGeneralAnesthesia === "нет"}
               />
               <label>Нет</label>
             </div>
@@ -1315,6 +1365,7 @@ class userInfo extends Component
                 required
                 value="да"
                 onChange={this.onChange}
+                checked={this.state.wasAnasthesiaComplications === "да"}
               />
               <label>Да</label>
 
@@ -1324,6 +1375,7 @@ class userInfo extends Component
                 required
                 value="нет"
                 onChange={this.onChange}
+                checked={this.state.wasAnasthesiaComplications === "нет"}
               />
               <label>Нет</label>
 
@@ -1349,7 +1401,6 @@ class userInfo extends Component
                 value="да"
                 onChange={this.onChange}
                 checked={this.state.siblingsAnasthesiaComplications === "да"}
-                
               />
               <label>Да</label>
 
