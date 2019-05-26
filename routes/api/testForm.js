@@ -46,5 +46,6 @@ router.post("/", (req, res) => {
   return res.status(200).json({cool:"yes"});
 });
 
-router.post('/admin',(req, res) => {console.log("Заработало"); return res.status(200)});
+
+
 module.exports = router;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -6,21 +7,25 @@ import classnames from "classnames";
 import { loginUser } from "../../actions/authActions";
 import ReactDataGrid from 'react-data-grid';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import PrintForm from './PrintForm.js' ;
 const columns = [
-  { key: 'id', name: 'ID' },
-  { key: 'title', name: 'Title' },
-  { key: 'count', name: 'Count' } ];
+  { key: 'id', name: 'Код Донора' },
+  { key: 'linkPaper', name: 'Анкета' },
+  { key: 'status', name: 'Статус' },
+  { key: 'print', name: 'Печать' } ];
 
-const rows = [{id: 0, title: 'row1', count: 20}, {id: 1, title: 'row1', count: 40}, {id: 2, title: 'row1', count: 60}];
-
-function HelloWorld() {
-  return (<ReactDataGrid
-  columns={columns}
-  rowGetter={i => rows[i]}
-  rowsCount={3}
-  minHeight={150} />);
-}
+const rows = [{id: 0, linkPaper: <Link className="nav-link" to="/register">
+Открыть Анкету
+</Link>, status: "Проверена",
+ print:<Link className="nav-link" to="/PrintForm"> Печать</Link>},
+ {id: 1,linkPaper:<Link className="nav-link" to="/register">
+Открыть Анкету
+</Link>, status: "Есть ошибки",
+ print:<Link className="nav-link" to="/PrintForm"> Печать</Link> },
+{id: 2, 
+linkPaper: <Link className="nav-link" to="/register">Открыть Анкету</Link>,
+status: "Не проверена",
+print:<Link className="nav-link" to="/PrintForm"> Печать</Link>} ];
 
 
 
@@ -72,15 +77,14 @@ class adminForm extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div><ReactDataGrid
+      <div>
+        <ReactDataGrid
       columns={columns}
       rowGetter={i => rows[i]}
       rowsCount={4}
-      minHeight={150} />
-      <Link className="nav-link" to="/register">
-            Sign Up2
-          </Link>
+      minHeight={150} /> 
       </div>
+
       // <div className="login">
       //   <div className="container">
       //     <div className="row">
