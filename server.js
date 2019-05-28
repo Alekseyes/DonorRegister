@@ -6,6 +6,8 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const testForm = require("./routes/api/testForm");
 const admin = require("./routes/api/admin");
+const adminSeeder = require("./seed/adminSeeder");
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -13,7 +15,10 @@ app.use(bodyParser.json());
 
 mongoose
   .connect("mongodb+srv://me:HrrCPkFn3jFWZWmG@cluster0-vwzjt.gcp.mongodb.net/test?retryWrites=true")
-  .then(() => console.log("connected to db"))
+  .then(() => {
+    console.log("connected to db");
+    adminSeeder();
+  })
   .catch(error => console.log(error));
 
 app.use(passport.initialize());
